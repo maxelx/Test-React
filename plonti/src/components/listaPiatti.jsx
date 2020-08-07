@@ -5,7 +5,8 @@ import firebase from "../firebase"
 function usePiatti(){
     const [piatti, setPiatti]= useState([])
     useEffect(()=>{
-        firebase
+
+        const unsubscribe = firebase
         .firestore()
         .collection("piatti")
         .onSnapshot((snapshot)=>{
@@ -15,8 +16,17 @@ function usePiatti(){
             }))
             setPiatti(newPiatto)
         })
+        return ()=> unsubscribe()// permette di chiudere la socket dopo che è stata fatta la richiesta
     },[])
     return piatti
+}
+
+function elimina(id){
+    firebase.firestore().collection("piatti").doc(id).delete().then(function (){
+        console.log("Documento eliminato");
+    }).catch(function(error){
+        console.error("Errore rimuovendo l'errore", error);
+    });
 }
 
 const ListaPiatti =()=>{
@@ -42,6 +52,7 @@ const ListaPiatti =()=>{
                         <div className="piatto">
                             <h3>{piatto.title}</h3>
                             <code className="codicePiatto">{piatto.numero}</code>
+                            <button onClick={()=> elimina(piatto.id)}>Piatto Arrivato</button>
                         </div>
                     </li>
                 )}

@@ -7,7 +7,8 @@ const AggiungiPiatto =()=>{
     const [numero, setNumero]= useState("")
     
     function onSubmit(e){
-        e.preventDegault()
+        e.preventDefault()
+        
         firebase.firestore().collection("piatti").add({title: title, numero: parseInt(numero)}).then(()=>{
             setTitle("")
             setNumero("")
