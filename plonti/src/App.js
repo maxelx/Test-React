@@ -13,7 +13,7 @@ import QueryPiatto from "./components/queryPiatto"
 function App() {
   return (
     <div className="App">
-      <h1>Buongiolno siete plonti??</h1>
+      <h1 className="titolo">Buongiolno siete plonti??</h1>
       <ListaPiatti/>
       <AggiungiPiatto></AggiungiPiatto>
       <QueryPiatto></QueryPiatto>

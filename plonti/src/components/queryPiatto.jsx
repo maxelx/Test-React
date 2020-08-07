@@ -14,7 +14,7 @@ const QueryPiatto = ()=> {
         firebase.firestore().collection("piatti").where("numero", "==", parseInt(nome)).get().then((querySnapshot)=>{//la query
             querySnapshot.forEach(function(doc){
                 //console.log(doc.id, "=>", doc.data());
-                console.log(doc.data().title)
+                //console.log(doc.data().title)
                 setNomiUtenti(doc.data());//variabile che mi serve per passare i valori a listaFast come props
             });
             setNome("");

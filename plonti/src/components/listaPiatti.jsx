@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react"
 import firebase from "../firebase"
-
+import "./style.css"
 
 function usePiatti(){
     const [piatti, setPiatti]= useState([])
@@ -48,7 +48,7 @@ const ListaPiatti =()=>{
             </div>
             <ol>
                 {piatti.map((piatto)=>
-                    <li key={piatto.id}>
+                    <li key={piatto.id} className="scheda">
                         <div className="piatto">
                             <h3>Ordinato da : {piatto.nome}</h3>
                             <h3>Nome piatto {piatto.title}</h3>

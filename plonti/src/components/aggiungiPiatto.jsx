@@ -1,5 +1,6 @@
 import React, {useState} from "react"
 import firebase from "../firebase"
+import "./style.css"
 
 const AggiungiPiatto =()=>{
 
@@ -18,7 +19,7 @@ const AggiungiPiatto =()=>{
     }
 
     return (
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} className="form">
             <h3>Aggiungi il piatto</h3>
             <div>
                 <label>Il tuo Nome</label>
