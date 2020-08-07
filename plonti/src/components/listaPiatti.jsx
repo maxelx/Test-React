@@ -50,8 +50,9 @@ const ListaPiatti =()=>{
                 {piatti.map((piatto)=>
                     <li key={piatto.id}>
                         <div className="piatto">
-                            <h3>{piatto.title}</h3>
-                            <code className="codicePiatto">{piatto.numero}</code>
+                            <h3>Ordinato da : {piatto.nome}</h3>
+                            <h3>Nome piatto {piatto.title}</h3>
+                            <code className="codicePiatto">Codice piatto : {piatto.numero}</code>
                             <button onClick={()=> elimina(piatto.id)}>Piatto Arrivato</button>
                         </div>
                     </li>
